@@ -1,6 +1,6 @@
 const MCP_OAUTH_CALLBACK_ROUTE = "/mcp/oauth/callback";
 
-const APP_SCHEMES = new Set(["mobile-agent:", "exp+mobile-agent:"]);
+const APP_SCHEMES = new Set(["nexora-ai:", "exp+nexora-ai:"]);
 const WEB_SCHEMES = new Set(["http:", "https:"]);
 
 /**
@@ -13,7 +13,7 @@ function isForeignScheme(path: string) {
   if (!path.includes(":")) return false;
 
   try {
-    const { protocol } = new URL(path, "mobile-agent://app.home");
+    const { protocol } = new URL(path, "nexora-ai://app.home");
 
     return !APP_SCHEMES.has(protocol) && !WEB_SCHEMES.has(protocol);
   } catch {
@@ -27,7 +27,7 @@ function stripQueryAndHash(path: string) {
 
 function isMcpOAuthCallback(path: string) {
   try {
-    const url = new URL(path, "mobile-agent://app.home");
+    const url = new URL(path, "nexora-ai://app.home");
 
     return (
       (url.hostname === "mcp" && url.pathname === "/oauth/callback") ||

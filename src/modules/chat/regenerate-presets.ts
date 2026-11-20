@@ -54,7 +54,7 @@ export const DEFAULT_REGENERATE_PRESETS: RegeneratePreset[] = [
 const PRESETS_FILE = "regenerate-presets.json";
 
 function getDirectory() {
-  return new Directory(Paths.document, "mobile-agent");
+  return new Directory(Paths.document, "nexora-ai");
 }
 
 function getFile() {

@@ -1,10 +1,6 @@
-# Mobile Agent
+# NEXORA AI
 
-Mobile Agent is an open-source AI agent built specifically for mobile devices that runs entirely on your phone.
-
-## Demo
-
-[![Mobile Agent demo](https://img.youtube.com/vi/_P_SQ0MW-aU/maxresdefault.jpg)](https://youtu.be/_P_SQ0MW-aU?si=klxA4b7RU3Y2j5iy)
+NEXORA AI is an open-source AI agent built specifically for mobile devices that runs entirely on your phone.
 
 ## Features
 
@@ -26,10 +22,10 @@ Mobile Agent is an open-source AI agent built specifically for mobile devices th
 
 The application is distributed through GitHub Releases.
 
-1. Download the latest APK from the Releases page.
+1. Download the latest APK from the Releases page (`https://github.com/stylesheet48-max/nexora-ai/releases`).
 2. Install the APK on your Android device.
 3. Grant the required permissions.
-4. Start using Mobile Agent.
+4. Start using NEXORA AI.
 
 ## Connect Antigravity or Claude
 
@@ -37,7 +33,7 @@ Antigravity and Claude run as host-side ACP harnesses. On the computer that has
 `agy` and/or `claude-agent-acp` installed, run the installer once:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/tecnicalbot/mobile-agent/main/tools/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/stylesheet48-max/nexora-ai/main/tools/install.sh | sh
 mabridge
 ```
 
@@ -58,4 +54,4 @@ Contributions are welcome. Feel free to open an issue for bug reports, feature r
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

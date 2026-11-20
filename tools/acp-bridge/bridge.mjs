@@ -51,7 +51,7 @@ export const BRIDGE_VERSION = "1.4.0";
 const LOOPBACK_HOSTS = new Set(["127.0.0.1", "::1", "localhost"]);
 const MAX_UPLOAD_BYTES = 200 * 1024 * 1024;
 const PAIRING_TTL_MS = 5 * 60 * 1000;
-const PAIRING_TYPE = "mobile-agent-acp-pair";
+const PAIRING_TYPE = "nexora-ai-acp-pair";
 
 /**
  * One token file is shared by every harness bridge. Restarting a bridge (or
@@ -59,13 +59,15 @@ const PAIRING_TYPE = "mobile-agent-acp-pair";
  * forcing the app to reconnect.
  */
 export function defaultTokenFile() {
+  if (process.env.NEXORA_AI_BRIDGE_TOKEN_FILE)
+    return process.env.NEXORA_AI_BRIDGE_TOKEN_FILE;
   if (process.env.MOBILE_AGENT_BRIDGE_TOKEN_FILE)
     return process.env.MOBILE_AGENT_BRIDGE_TOKEN_FILE;
   const root =
     process.platform === "win32"
       ? process.env.APPDATA || homedir()
       : process.env.XDG_CONFIG_HOME || join(homedir(), ".config");
-  return join(root, "mobile-agent", "bridge-token");
+  return join(root, "nexora-ai", "bridge-token");
 }
 
 function readTokenFile(path) {
@@ -242,7 +244,7 @@ Token:
 Examples:
   node bridge.mjs --pair
   node bridge.mjs --host 127.0.0.1
-  node bridge.mjs --host 0.0.0.0 --port ${profile.defaultPort} --token-file ~/.config/mobile-agent/bridge-token
+  node bridge.mjs --host 0.0.0.0 --port ${profile.defaultPort} --token-file ~/.config/nexora-ai/bridge-token
   node bridge.mjs ${profile.commandFlag} /usr/local/bin/${commandName} --cwd ~/code/project
 `;
 }
@@ -900,7 +902,7 @@ export function runBridge(profile, argv = process.argv.slice(2)) {
     if (request.method === "POST" && url.pathname === "/files") {
       const name = sanitizeUploadName(url.searchParams.get("name"));
       const directory = uploadDirectory(url.searchParams.get("directory"));
-      const folder = join(directory, ".mobile-agent", "uploads", randomUUID());
+      const folder = join(directory, ".nexora-ai", "uploads", randomUUID());
       const path = join(folder, name);
       try {
         await mkdir(folder, { recursive: true });

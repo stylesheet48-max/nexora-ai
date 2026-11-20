@@ -14,7 +14,7 @@ import { dispatchScheduledRunHeadless } from "./dispatch";
  * directly, fires every due schedule, and re-arms the native alarms.
  */
 export async function runSchedulerHeadlessTick(): Promise<void> {
-  const db = openDatabaseSync("mobile-agent.db");
+  const db = openDatabaseSync("nexora-ai.db");
 
   try {
     await migrateAppDatabase(db);

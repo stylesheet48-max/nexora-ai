@@ -151,7 +151,7 @@ describe("Whisper model downloads and selection", () => {
     expect(await loadVoiceLanguage("system")).toBe("en");
   });
   it("falls back to the default language when the file is malformed", async () => {
-    mocks.files.set("file:///document/mobile-agent/voice/settings.json", {
+    mocks.files.set("file:///document/nexora-ai/voice/settings.json", {
       size: 5,
       text: "nope!",
     });

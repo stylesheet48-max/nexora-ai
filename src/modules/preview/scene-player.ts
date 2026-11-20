@@ -37,7 +37,7 @@ export function formatPlayerTime(seconds: number): string {
 
 /**
  * Builds the idempotent player script injected into the scene WebView. It
- * defines `window.__mobileAgentPlayer = { play, pause, seek, state }` and
+ * defines `window.__nexoraAiPlayer = { play, pause, seek, state }` and
  * posts `{ type: 'mobileAgentPlayerTime', t, playing, error, audioError }`
  * (throttled) back over `ReactNativeWebView.postMessage`.
  *
@@ -51,11 +51,11 @@ export function formatPlayerTime(seconds: number): string {
  * Plain-JS string, free of backticks and `${`, in the house style of the
  * other injected engines.
  */
-export const SCENE_PLAYER_MESSAGE_TYPE = "mobileAgentPlayerTime";
+export const SCENE_PLAYER_MESSAGE_TYPE = "nexoraAiPlayerTime";
 
 export function buildScenePlayerScript(): string {
   return `(function () {
-  if (window.__mobileAgentPlayer) return;
+  if (window.__nexoraAiPlayer) return;
   var v = window.MOBILE_AGENT_VIDEO;
   var rawShots = v && v.shots;
   var hasShots = Object.prototype.toString.call(rawShots) === '[object Array]' && rawShots.length > 0;
@@ -383,7 +383,7 @@ export function buildScenePlayerScript(): string {
     post(false);
     state.raf = requestAnimationFrame(frame);
   }
-  window.__mobileAgentPlayer = {
+  window.__nexoraAiPlayer = {
     play: function () {
       if (!ctx) return false;
       if (duration > 0 && state.t >= duration) state.t = 0;

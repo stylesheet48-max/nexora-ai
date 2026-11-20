@@ -14,7 +14,7 @@ describe("OpenCode host uploads", () => {
         uploadID: "../../session",
         fileName: "../My Report.pdf",
       }),
-    ).toBe("/tmp/opencode/uploads/mobile-agent/session/My-Report.pdf");
+    ).toBe("/tmp/opencode/uploads/nexora-ai/session/My-Report.pdf");
   });
 
   it("streams the file to the host and returns the resolved path", async () => {
@@ -41,7 +41,7 @@ describe("OpenCode host uploads", () => {
     const url = new URL(String(input));
     expect(url.pathname).toBe("/api/experimental/fs/write");
     expect(url.searchParams.get("path")).toBe(
-      "/tmp/opencode/uploads/mobile-agent/upload-1/report.pdf",
+      "/tmp/opencode/uploads/nexora-ai/upload-1/report.pdf",
     );
     expect(url.searchParams.get("location[directory]")).toBe("/project");
     expect(options?.method).toBe("POST");

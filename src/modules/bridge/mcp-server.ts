@@ -130,13 +130,13 @@ export function createBridgeMcpServer(options: BridgeOptions) {
 
   function createSession() {
     const server = new Server(
-      { name: "mobile-agent-phone-tools", version: "0.1.0" },
+      { name: "nexora-ai-phone-tools", version: "0.1.0" },
       {
         capabilities: { tools: {} },
         instructions:
           "These tools run on the user's phone, not on your host. Only the explicitly shared phone folder is accessible through folder tools. workspace:// references point to files on the phone, not local host paths. Ask for approval when required; never bypass a denied request." +
           (tools.has("listSkills")
-            ? " Mobile Agent phone skills are additional to your host-native skills. When asked about available skills, call this server's listSkills and include its results. Before generating documents or videos, discover relevant phone skills with listSkills, then load their instructions with skill. Supporting files are available through skillReadFile. Do not say phone skills are unavailable without checking this server."
+            ? " NEXORA AI phone skills are additional to your host-native skills. When asked about available skills, call this server's listSkills and include its results. Before generating documents or videos, discover relevant phone skills with listSkills, then load their instructions with skill. Supporting files are available through skillReadFile. Do not say phone skills are unavailable without checking this server."
             : ""),
       },
     );
@@ -169,7 +169,7 @@ export function createBridgeMcpServer(options: BridgeOptions) {
       if (!tool) return fail("This tool is not shared with this connection.");
       if (stopped || !options.isAvailable())
         return fail(
-          "Phone tools are unavailable. Open Mobile Agent and enable sharing.",
+          "Phone tools are unavailable. Open NEXORA AI and enable sharing.",
         );
       if (activeCalls >= MAX_CONCURRENT_CALLS)
         return fail("The phone is busy with other tool calls. Try again.");
@@ -221,7 +221,7 @@ export function createBridgeMcpServer(options: BridgeOptions) {
         return fail(
           extra.signal.aborted
             ? "Phone tool request cancelled."
-            : "Phone tool failed. Check the input and Mobile Agent.",
+            : "Phone tool failed. Check the input and NEXORA AI.",
         );
       } finally {
         activeCalls -= 1;

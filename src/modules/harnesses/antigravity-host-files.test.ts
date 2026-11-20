@@ -29,7 +29,7 @@ describe("Antigravity host uploads", () => {
   it("streams the file to the bridge and returns the host path", async () => {
     const transport = vi.fn<typeof fetch>(async () =>
       Response.json({
-        path: "/project/.mobile-agent/uploads/id/report.pdf",
+        path: "/project/.nexora-ai/uploads/id/report.pdf",
         size: bytes.byteLength,
       }),
     );
@@ -41,7 +41,7 @@ describe("Antigravity host uploads", () => {
       bytes,
     });
 
-    expect(path).toBe("/project/.mobile-agent/uploads/id/report.pdf");
+    expect(path).toBe("/project/.nexora-ai/uploads/id/report.pdf");
     const [input, options] = transport.mock.calls[0];
     const url = new URL(String(input));
     expect(url.pathname).toBe("/files");
@@ -67,7 +67,7 @@ describe("Antigravity host uploads", () => {
       ) => ({
         status: 201,
         body: JSON.stringify({
-          path: "/project/.mobile-agent/uploads/id/report.pdf",
+          path: "/project/.nexora-ai/uploads/id/report.pdf",
           size: 50 * 1024 * 1024,
         }),
       }),
@@ -86,7 +86,7 @@ describe("Antigravity host uploads", () => {
       },
     });
 
-    expect(path).toBe("/project/.mobile-agent/uploads/id/report.pdf");
+    expect(path).toBe("/project/.nexora-ai/uploads/id/report.pdf");
     expect(transport).not.toHaveBeenCalled();
     expect(upload).toHaveBeenCalledOnce();
     const [url, options] = upload.mock.calls[0]!;

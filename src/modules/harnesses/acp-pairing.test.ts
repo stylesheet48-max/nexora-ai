@@ -73,10 +73,10 @@ describe("ACP pairing QR payloads", () => {
       parseAcpPairingPayload(payload({ expiresAt: Date.now() - 1 })),
     ).toThrow(/expired/i);
     expect(() => parseAcpPairingPayload("not json")).toThrow(/pairing QR/i);
-    expect(() => parseAcpPairingPayload("{}")).toThrow(/not a Mobile Agent/i);
+    expect(() => parseAcpPairingPayload("{}")).toThrow(/not a NEXORA AI/i);
     expect(() =>
       parseAcpPairingPayload(payload({ type: "something-else" })),
-    ).toThrow(/not a Mobile Agent/i);
+    ).toThrow(/not a NEXORA AI/i);
   });
 
   it("rejects unsupported harnesses, duplicate bridges, and unsafe URLs", () => {

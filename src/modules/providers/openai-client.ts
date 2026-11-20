@@ -119,7 +119,7 @@ async function fetchWithCodexOAuth(
     headers.delete("authorization");
     headers.set("authorization", `Bearer ${accessToken}`);
     headers.set("originator", "opencode");
-    headers.set("User-Agent", `mobile-agent/1.1.0 (${Platform.OS})`);
+    headers.set("User-Agent", `nexora-ai/1.1.0 (${Platform.OS})`);
 
     if (accountId) {
       headers.set("ChatGPT-Account-Id", accountId);
@@ -284,8 +284,8 @@ export async function createOpenAIClient(input: {
     headers:
       input.provider.family === "openrouter"
         ? {
-            "HTTP-Referer": "https://mobile-agent.local",
-            "X-Title": "mobile-agent",
+            "HTTP-Referer": "https://nexora.ai.local",
+            "X-Title": "nexora-ai",
           }
         : undefined,
     name:

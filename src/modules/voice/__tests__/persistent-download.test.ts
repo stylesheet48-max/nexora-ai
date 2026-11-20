@@ -49,7 +49,7 @@ const model: VoiceCatalogModel = {
   url: "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-tiny.bin",
 };
 
-const relativePath = "mobile-agent/voice/ggml-tiny.bin";
+const relativePath = "nexora-ai/voice/ggml-tiny.bin";
 
 describe("persistent voice downloads", () => {
   beforeEach(() => {

@@ -88,11 +88,11 @@ describe("convertStoredMessagesToModelMessages media passthrough", () => {
     vi.clearAllMocks();
     mocks.files.clear();
     mocks.files.set(
-      "file:///document/mobile-agent/workspace/file-1-clip.mp3",
+      "file:///document/nexora-ai/workspace/file-1-clip.mp3",
       { bytes: new Uint8Array([1, 2, 3]) },
     );
     mocks.files.set(
-      "file:///document/mobile-agent/workspace/file-2-clip.mp4",
+      "file:///document/nexora-ai/workspace/file-2-clip.mp4",
       { bytes: new Uint8Array([4, 5, 6]) },
     );
   });
@@ -171,7 +171,7 @@ describe("convertStoredMessagesToModelMessages media passthrough", () => {
   function images(count: number, size: number) {
     return Array.from({ length: count }, (_, index) => {
       const relativePath = `image-${index}.jpg`;
-      mocks.files.set(`file:///document/mobile-agent/workspace/${relativePath}`, {
+      mocks.files.set(`file:///document/nexora-ai/workspace/${relativePath}`, {
         bytes: new Uint8Array([1]),
         size,
       });

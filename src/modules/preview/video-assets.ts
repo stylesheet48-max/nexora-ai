@@ -362,8 +362,8 @@ function markWorkspaceImageTags(html: string, ids: string[]): string {
     if (!match) return tag;
     const id = workspaceIdFromSrc(match[2]);
     if (!id || !wanted.has(id)) return tag;
-    if (/\bdata-mobile-agent-asset\b/i.test(tag)) return tag;
-    return tag.replace(/^<img\b/i, '<img data-mobile-agent-asset="image"');
+    if (/\bdata-nexora-ai-asset\b/i.test(tag)) return tag;
+    return tag.replace(/^<img\b/i, '<img data-nexora-ai-asset="image"');
   });
 }
 

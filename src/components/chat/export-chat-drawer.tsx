@@ -156,7 +156,7 @@ export function ExportChatDrawer({
     try {
       const directory = new Directory(
         Paths.document,
-        "mobile-agent",
+        "nexora-ai",
         "exports",
       );
 

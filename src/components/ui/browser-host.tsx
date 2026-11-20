@@ -40,18 +40,18 @@ const MAX_CAPTURE_WIDTH_PX = 1568;
 
 /**
  * In-page bridge, free of backticks and `${` (house style for injected
- * engines). Installs `window.__mobileAgentBrowser` on every document and
+ * engines). Installs `window.__nexoraAiBrowser` on every document and
  * answers `run(requestId, jsonCommand)` over `ReactNativeWebView` with
- * `{ src: 'mobileAgentBrowser', requestId, status, result | message }`, plus
+ * `{ src: 'nexoraAiBrowser', requestId, status, result | message }`, plus
  * one `{ kind: 'boot' }` ping per load so the host knows a document is ready.
  * Selectors accept CSS or `text=...` (visible label text match) — clicking by
  * label is what agents actually do.
  */
 const BRIDGE_SCRIPT = `(function () {
-  if (window.__mobileAgentBrowser) return;
+  if (window.__nexoraAiBrowser) return;
   function post(payload) {
     try {
-      var out = { src: 'mobileAgentBrowser' };
+      var out = { src: 'nexoraAiBrowser' };
       for (var k in payload) out[k] = payload[k];
       if (window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
         window.ReactNativeWebView.postMessage(JSON.stringify(out));
@@ -232,7 +232,7 @@ const BRIDGE_SCRIPT = `(function () {
       post({ requestId: requestId, status: 'error', message: String((error && error.message) || error) });
     });
   };
-  window.__mobileAgentBrowser = api;
+  window.__nexoraAiBrowser = api;
   post({ kind: 'boot', url: location.href, title: norm(document.title) || null });
 })();`;
 
@@ -259,7 +259,7 @@ type BridgeMessage =
 function parseBridgeMessage(data: string): BridgeMessage | null {
   try {
     const parsed = JSON.parse(data) as Record<string, unknown>;
-    if (parsed.src !== "mobileAgentBrowser") return null;
+    if (parsed.src !== "nexoraAiBrowser") return null;
     if (parsed.kind === "boot" && typeof parsed.url === "string") {
       return { type: "boot", url: parsed.url, title: typeof parsed.title === "string" ? parsed.title : null };
     }
@@ -383,9 +383,9 @@ export function BrowserHost() {
           else reject(new Error(message.message));
         });
         webView.injectJavaScript(
-          `window.__mobileAgentBrowser ? window.__mobileAgentBrowser.run(${requestId}, ${JSON.stringify(
+          `window.__nexoraAiBrowser ? window.__nexoraAiBrowser.run(${requestId}, ${JSON.stringify(
             JSON.stringify(command),
-          )}) : window.ReactNativeWebView && window.ReactNativeWebView.postMessage(JSON.stringify({ src: 'mobileAgentBrowser', requestId: ${requestId}, status: 'error', message: 'The browser bridge is not running on this page.' }));`,
+          )}) : window.ReactNativeWebView && window.ReactNativeWebView.postMessage(JSON.stringify({ src: 'nexoraAiBrowser', requestId: ${requestId}, status: 'error', message: 'The browser bridge is not running on this page.' }));`,
         );
       });
     },
@@ -754,7 +754,7 @@ export function BrowserHost() {
   const handleLoadEnd = useCallback(() => {
     // Safety net for pages where injectedJavaScript never ran.
     webViewRef.current?.injectJavaScript(
-      "window.__mobileAgentBrowser || " + BRIDGE_SCRIPT,
+      "window.__nexoraAiBrowser || " + BRIDGE_SCRIPT,
     );
   }, []);
 

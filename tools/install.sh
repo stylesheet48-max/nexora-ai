@@ -1,16 +1,16 @@
 #!/bin/sh
-# Mobile Agent ACP bridge installer.
+# NEXORA AI ACP bridge installer.
 #
-#   curl -fsSL https://raw.githubusercontent.com/tecnicalbot/mobile-agent/main/tools/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/stylesheet48-max/nexora-ai/main/tools/install.sh | sh
 #
 # Installs a portable Node.js when needed, downloads the single-file bridge,
 # creates a stable token, and adds the short `mabridge` command to PATH.
 set -eu
 
-MAB_HOME="${MAB_HOME:-$HOME/.mobile-agent}"
+MAB_HOME="${MAB_HOME:-$HOME/.nexora-ai}"
 MAB_BIN_DIR="${MAB_BIN_DIR:-$HOME/.local/bin}"
-MAB_BRIDGE_URL="${MAB_BRIDGE_URL:-https://raw.githubusercontent.com/tecnicalbot/mobile-agent/main/tools/acp-bridge/bridge.mjs}"
-MAB_TOKEN_FILE="${MOBILE_AGENT_BRIDGE_TOKEN_FILE:-${XDG_CONFIG_HOME:-$HOME/.config}/mobile-agent/bridge-token}"
+MAB_BRIDGE_URL="${MAB_BRIDGE_URL:-https://raw.githubusercontent.com/stylesheet48-max/nexora-ai/main/tools/acp-bridge/bridge.mjs}"
+MAB_TOKEN_FILE="${NEXORA_AI_BRIDGE_TOKEN_FILE:-${MOBILE_AGENT_BRIDGE_TOKEN_FILE:-${XDG_CONFIG_HOME:-$HOME/.config}/nexora-ai/bridge-token}}"
 MAB_NODE_MIN_MAJOR="${MAB_NODE_MIN_MAJOR:-22}"
 MAB_NO_PATH="${MAB_NO_PATH:-0}"
 MAB_FORCE_NODE="${MAB_FORCE_NODE:-0}"
@@ -313,12 +313,12 @@ if [ "$MAB_NO_PATH" != "1" ]; then
         bash) rc="$HOME/.bashrc" ;;
         *) rc="$HOME/.profile" ;;
       esac
-      if [ -f "$rc" ] && grep -q '# mobile-agent bridge' "$rc"; then
+      if [ -f "$rc" ] && grep -q '# nexora-ai bridge' "$rc"; then
         :
       else
         mkdir -p "$(dirname "$rc")"
         {
-          printf '\n# mobile-agent bridge\n'
+          printf '\n# nexora-ai bridge\n'
           printf 'export PATH="%s:$PATH"\n' "$MAB_BIN_DIR"
         } >> "$rc"
       fi

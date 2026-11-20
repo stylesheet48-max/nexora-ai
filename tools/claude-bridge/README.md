@@ -70,7 +70,7 @@ single-file bridge, creates the shared token, adds a short `mabridge` command,
 and installs the optional terminal QR renderer:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/tecnicalbot/mobile-agent/main/tools/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/stylesheet48-max/nexora-ai/main/tools/install.sh | sh
 mabridge
 ```
 
@@ -92,14 +92,14 @@ mabridge --update           # refresh bridge.mjs later
 You can still download just the bridge without the installer:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/tecnicalbot/mobile-agent/main/tools/acp-bridge/bridge.mjs \
-  -o mobile-agent-bridge.mjs
+curl -fsSL https://raw.githubusercontent.com/stylesheet48-max/nexora-ai/main/tools/acp-bridge/bridge.mjs \
+  -o nexora-ai-bridge.mjs
 
 # Both harnesses, with a pairing QR:
-node mobile-agent-bridge.mjs --harness all --lan --pair
+node nexora-ai-bridge.mjs --harness all --lan --pair
 
 # Only Claude:
-node mobile-agent-bridge.mjs --harness claude --lan --pair
+node nexora-ai-bridge.mjs --harness claude --lan --pair
 ```
 
 The downloaded file contains both harness profiles, the shared token logic,
@@ -159,7 +159,7 @@ token after the one-time code is redeemed, so the long-lived token never
 appears in the QR.
 
 On the first run the bridge creates a stable token at
-`~/.config/mobile-agent/bridge-token` (or `%APPDATA%\mobile-agent\bridge-token`
+`~/.config/nexora-ai/bridge-token` (or `%APPDATA%\nexora-ai\bridge-token`
 on Windows), prints it once, and reuses it on every restart. The Antigravity and
 Claude bridges share the same file, so you only need one token for both.
 
@@ -190,7 +190,7 @@ node tools/claude-bridge/bridge.mjs \
 | --- | --- |
 | `--host` | Bind address. Default `0.0.0.0` (LAN). Use `127.0.0.1` for local-only. |
 | `--port` | Bind port. Default `7802`. |
-| `--token-file` | Stable token file. Created on first use. Default `~/.config/mobile-agent/bridge-token`. |
+| `--token-file` | Stable token file. Created on first use. Default `~/.config/nexora-ai/bridge-token`. |
 | `--token` | Advanced: one-off token override. Not saved. Prefer `--token-file`. |
 | `--pair` | Print a five-minute, single-use pairing QR at startup. |
 | `--no-pair` | Do not print a pairing QR (default). |
@@ -269,7 +269,7 @@ curl -sS -X POST \
 
 ```json
 {
-  "path": "/home/me/project/.mobile-agent/uploads/<id>/report.pdf",
+  "path": "/home/me/project/.nexora-ai/uploads/<id>/report.pdf",
   "size": 24738291,
   "name": "report.pdf"
 }
@@ -376,7 +376,7 @@ The app passes its selected MCP servers in `session/new` and `session/resume`:
   the bridge token like a shell password.
 - Bind to `127.0.0.1` and use an SSH/Tailscale tunnel if you do not need LAN
   access.
-- The stable token is stored in `~/.config/mobile-agent/bridge-token` with
+- The stable token is stored in `~/.config/nexora-ai/bridge-token` with
   owner-only permissions. The bridge never prints it again after the first run;
   read the file if you need to copy it.
 - Pairing QRs contain a single-use code, not the stable token. Still treat the

@@ -70,7 +70,7 @@ function makeHarness(options?: {
       "Date",
       "JSON",
       "Math",
-      `${script}\nreturn window.__mobileAgentPlayer;`,
+      `${script}\nreturn window.__nexoraAiPlayer;`,
     );
     return fn(
       sandbox.window,

@@ -97,7 +97,7 @@ jobs:
       - name: Download APK
         if: steps.version.outputs.changed == 'true'
         run: |
-          curl -fL "$APK_URL" -o mobile-agent-${{ env.VERSION }}.apk
+          curl -fL "$APK_URL" -o nexora-ai-${{ env.VERSION }}.apk
 
       - name: Merge release notes
         if: steps.version.outputs.changed == 'true'
@@ -120,8 +120,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ env.VERSION }}
-          name: Mobile Agent v${{ env.VERSION }}
-          files: mobile-agent-${{ env.VERSION }}.apk
+          name: NEXORA AI v${{ env.VERSION }}
+          files: nexora-ai-${{ env.VERSION }}.apk
           body_path: ${{ env.RELEASE_NOTES_PATH }}
           prerelease: ${{ contains(env.VERSION, 'alpha') || contains(env.VERSION, 'beta') || contains(env.VERSION, 'rc') || contains(env.VERSION, 'pre') }}
 

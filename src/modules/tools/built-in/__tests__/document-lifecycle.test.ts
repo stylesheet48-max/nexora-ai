@@ -161,7 +161,7 @@ async function storedBytes(
 ): Promise<Uint8Array> {
   const file = await repository.getById(fileId);
   return mocks.files.get(
-    `file:///document/mobile-agent/workspace/${file!.relativePath}`,
+    `file:///document/nexora-ai/workspace/${file!.relativePath}`,
   )!.bytes;
 }
 

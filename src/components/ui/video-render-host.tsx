@@ -26,7 +26,7 @@ import {
 } from "@/modules/preview/video-job-bounds";
 import { getHtmlVideoExportModule } from "html-video-export";
 
-const KEEP_AWAKE_TAG = "mobile-agent-video-render";
+const KEEP_AWAKE_TAG = "nexora-ai-video-render";
 const EXPORT_VIEWPORT_WIDTH = 1280;
 const EXPORT_VIEWPORT_HEIGHT = 720;
 

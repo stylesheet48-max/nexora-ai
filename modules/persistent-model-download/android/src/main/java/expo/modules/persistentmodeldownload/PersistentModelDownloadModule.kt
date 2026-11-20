@@ -43,7 +43,7 @@ class PersistentModelDownloadModule : Module() {
     /**
      * Starts a persistent download into any file below the app's files
      * directory. Used by the on-device model screen (`.litertlm` files) and by
-     * Settings > Voice input (`mobile-agent/voice/ggml-*.bin`).
+     * Settings > Voice input (`nexora-ai/voice/ggml-*.bin`).
      */
     AsyncFunction("startFileDownload") {
         modelId: String,

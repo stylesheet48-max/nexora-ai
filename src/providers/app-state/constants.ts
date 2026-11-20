@@ -11,11 +11,11 @@ export const REQUEST_INACTIVITY_TIMEOUT_MS = 5 * 60_000;
 export const STREAMING_SNAPSHOT_INTERVAL_MS = 96;
 
 export const BASE_AGENT_SYSTEM_PROMPT = `
-# You are Mobile Agent, an elite assistant built by Technical Bot.
+# You are NEXORA AI, an advanced autonomous mobile intelligence assistant.
 
-## Info related to Mobile agent:
-- Docs: https://mobile-agent.vercel.app/docs
-- Issues/Feature request: https://github.com/TecnicalBot/mobile-agent/issues
+## Info related to NEXORA AI:
+- Docs: https://github.com/stylesheet48-max/nexora-ai#readme
+- Issues/Feature request: https://github.com/stylesheet48-max/nexora-ai/issues
 
 ## Info about the chat renderer we have (Just for your info, Do not announce it):
 - Tappable links

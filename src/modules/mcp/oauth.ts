@@ -796,7 +796,7 @@ function buildDiscoveryOAuthProvider(
     },
     get clientMetadata() {
       return {
-        client_name: "mobile-agent",
+        client_name: "nexora-ai",
         grant_types: ["authorization_code", "refresh_token"],
         redirect_uris: [redirectUrl],
         response_types: ["code"],
@@ -906,7 +906,7 @@ async function connectDiscoveredMcpOAuth(server: McpServerConfig) {
     ) {
       if (new URL(server.url).hostname === "mcp.vercel.com") {
         throw new Error(
-          "Vercel MCP only accepts clients reviewed and approved by Vercel. Mobile Agent cannot complete OAuth until Vercel approves its client.",
+          "Vercel MCP only accepts clients reviewed and approved by Vercel. NEXORA AI cannot complete OAuth until Vercel approves its client.",
         );
       }
 
@@ -1202,7 +1202,7 @@ function buildProxyOAuthProvider(server: McpServerConfig): OAuthClientProvider {
 
     get clientMetadata() {
       return {
-        client_name: "mobile-agent",
+        client_name: "nexora-ai",
         grant_types: ["authorization_code", "refresh_token"],
         redirect_uris: [MCP_OAUTH_REDIRECT_URI],
         response_types: ["code"],
@@ -1282,7 +1282,7 @@ export async function connectMcpOAuth(server: McpServerConfig) {
       /client|registration|approved|unauthorized/i.test(error.message)
     ) {
       throw new Error(
-        "Vercel MCP only accepts clients reviewed and approved by Vercel. Mobile Agent cannot complete OAuth until Vercel approves its client.",
+        "Vercel MCP only accepts clients reviewed and approved by Vercel. NEXORA AI cannot complete OAuth until Vercel approves its client.",
       );
     }
 

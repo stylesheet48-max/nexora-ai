@@ -59,7 +59,7 @@ describe("chat-export", () => {
     const serialized = serializeConversationExport(conversation, messages);
     const parsed = parseConversationExport(serialized);
 
-    expect(parsed.format).toBe("mobile-agent-chat");
+    expect(parsed.format).toBe("nexora-ai-chat");
     expect(parsed.version).toBe(1);
     expect(parsed.conversation).toEqual(conversation);
     expect(parsed.messages).toEqual(messages);
@@ -77,36 +77,36 @@ describe("chat-export", () => {
   it("rejects the wrong format", () => {
     const invalid = JSON.stringify({ format: "something-else", version: 1 });
     expect(() => parseConversationExport(invalid)).toThrow(
-      /not a Mobile Agent chat export/,
+      /not a NEXORA AI chat export/,
     );
   });
 
   it("rejects unsupported versions", () => {
-    const invalid = JSON.stringify({ format: "mobile-agent-chat", version: 99 });
+    const invalid = JSON.stringify({ format: "nexora-ai-chat", version: 99 });
     expect(() => parseConversationExport(invalid)).toThrow(
       /Unsupported chat export version/,
     );
   });
 
   it("rejects documents missing a conversation or messages", () => {
-    const noConversation = JSON.stringify({ format: "mobile-agent-chat", version: 1, messages: [] });
+    const noConversation = JSON.stringify({ format: "nexora-ai-chat", version: 1, messages: [] });
     expect(() => parseConversationExport(noConversation)).toThrow(/missing a conversation/);
 
     const noTitle = JSON.stringify({
-      format: "mobile-agent-chat",
+      format: "nexora-ai-chat",
       version: 1,
       conversation: { id: "x" },
       messages: [],
     });
     expect(() => parseConversationExport(noTitle)).toThrow(/missing a conversation title/);
 
-    const noMessages = JSON.stringify({ format: "mobile-agent-chat", version: 1, conversation });
+    const noMessages = JSON.stringify({ format: "nexora-ai-chat", version: 1, conversation });
     expect(() => parseConversationExport(noMessages)).toThrow(/missing its messages/);
   });
 
   it("rejects messages with an unknown role", () => {
     const invalid = JSON.stringify({
-      format: "mobile-agent-chat",
+      format: "nexora-ai-chat",
       version: 1,
       conversation,
       messages: [{ role: "tool", content: "x", status: "completed" }],

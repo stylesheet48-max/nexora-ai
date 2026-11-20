@@ -67,7 +67,7 @@ describe("importPluginSource", () => {
     const { repositories } = createRepositories();
 
     const result = await importPluginSource(
-      '// @mobile-agent-plugin {"name":"broken","version":"1.0.0"}\n' +
+      '// @nexora-ai-plugin {"name":"broken","version":"1.0.0"}\n' +
         "module.exports = { setup() { throw new Error('boom'); } };",
       repositories,
     );

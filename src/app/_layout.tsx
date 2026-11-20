@@ -320,7 +320,7 @@ export default function MainLayout() {
         <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
           <AppQueryProvider>
             <SQLiteProvider
-              databaseName="mobile-agent.db"
+              databaseName="nexora-ai.db"
               onInit={migrateAppDatabase}
             >
               <AppStateProvider>

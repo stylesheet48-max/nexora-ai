@@ -281,7 +281,7 @@ describe("workspace document create + update", () => {
     // The overwritten bytes are a valid pdf again.
     const pdf = await PDFDocument.load(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${created.relativePath}`,
+        `file:///document/nexora-ai/workspace/${created.relativePath}`,
       )!.bytes,
     );
     expect(pdf.getPageCount()).toBeGreaterThan(0);
@@ -296,7 +296,7 @@ describe("workspace document create + update", () => {
 
       const next = await service.updateDocumentFile(doc, updatedSource);
       const nextBytes = mocks.files.get(
-        `file:///document/mobile-agent/workspace/${next.relativePath}`,
+        `file:///document/nexora-ai/workspace/${next.relativePath}`,
       )!.bytes;
 
       expect(new TextDecoder().decode(nextBytes.subarray(0, 2))).toBe("PK");
@@ -321,7 +321,7 @@ describe("workspace document create + update", () => {
 
     const zip = await JSZip.loadAsync(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${updated.relativePath}`,
+        `file:///document/nexora-ai/workspace/${updated.relativePath}`,
       )!.bytes,
     );
     const documentXml = await zip.file("word/document.xml")!.async("string");
@@ -390,7 +390,7 @@ describe("workspace document create + update", () => {
 
     const workbook = XLSX.read(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${updated.relativePath}`,
+        `file:///document/nexora-ai/workspace/${updated.relativePath}`,
       )!.bytes,
       { type: "array" },
     );
@@ -443,7 +443,7 @@ describe("workspace document create + update", () => {
     expect(updated.sourceSpec).toBe(imported.sourceSpec);
 
     const bytes = mocks.files.get(
-      `file:///document/mobile-agent/workspace/${updated.relativePath}`,
+      `file:///document/nexora-ai/workspace/${updated.relativePath}`,
     )!.bytes;
     const zip = await JSZip.loadAsync(bytes);
     const stylesXml = await zip.file("word/styles.xml")!.async("string");
@@ -509,7 +509,7 @@ describe("workspace document create + update", () => {
     expect(updated.sourceSpec).toBe(imported.sourceSpec);
 
     const bytes = mocks.files.get(
-      `file:///document/mobile-agent/workspace/${updated.relativePath}`,
+      `file:///document/nexora-ai/workspace/${updated.relativePath}`,
     )!.bytes;
     const zip = await JSZip.loadAsync(bytes);
     const stylesXml = await zip.file("xl/styles.xml")!.async("string");
@@ -591,7 +591,7 @@ describe("workspace document sections", () => {
 
     const zip = await JSZip.loadAsync(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${result.file.relativePath}`,
+        `file:///document/nexora-ai/workspace/${result.file.relativePath}`,
       )!.bytes,
     );
     const documentXml = await zip.file("word/document.xml")!.async("string");

@@ -7,12 +7,12 @@ export { sanitizeFileName, sanitizeRelPath } from "@/modules/content/paths";
  * pattern (see `src/modules/plugins/plugin-files.ts`).
  *
  * Layout:
- *   <document>/mobile-agent/skills/<id>/SKILL.md
- *   <document>/mobile-agent/skills/<id>/files/<path>     (supporting files)
- *   <document>/mobile-agent/skills/<id>/files.json        (supporting file metadata)
- *   <document>/mobile-agent/agents/<id>/AGENT.md
- *   <document>/mobile-agent/agents/<id>/docs/<name>       (agent reference docs)
- *   <document>/mobile-agent/agents/<id>/docs.json         (doc metadata)
+ *   <document>/nexora-ai/skills/<id>/SKILL.md
+ *   <document>/nexora-ai/skills/<id>/files/<path>     (supporting files)
+ *   <document>/nexora-ai/skills/<id>/files.json        (supporting file metadata)
+ *   <document>/nexora-ai/agents/<id>/AGENT.md
+ *   <document>/nexora-ai/agents/<id>/docs/<name>       (agent reference docs)
+ *   <document>/nexora-ai/agents/<id>/docs.json         (doc metadata)
  *
  * The markdown file is the single source of truth for content; the SQLite row
  * keeps only the id, the file path pointer and runtime toggles.
@@ -31,7 +31,7 @@ export const SKILL_FILES_MANIFEST_FILE = "files.json";
 export const AGENT_DOCS_MANIFEST_FILE = "docs.json";
 
 function getContentRoot() {
-  return new Directory(Paths.document, "mobile-agent");
+  return new Directory(Paths.document, "nexora-ai");
 }
 
 export function ensureContentDir() {

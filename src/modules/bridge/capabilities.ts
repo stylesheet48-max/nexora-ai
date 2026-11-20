@@ -128,7 +128,7 @@ export async function createPhoneBridgeCapabilities(input: {
         "listSkills",
         tool({
           description:
-            "List the enabled Mobile Agent phone skills, separate from host-native skills. Load a matching skill with this server's skill tool before generating documents or videos." +
+            "List the enabled NEXORA AI phone skills, separate from host-native skills. Load a matching skill with this server's skill tool before generating documents or videos." +
             (skillSummary
               ? ` Available at connection time: ${skillSummary}.`
               : ""),

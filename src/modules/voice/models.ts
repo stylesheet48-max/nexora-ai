@@ -94,7 +94,7 @@ function defaultLanguageFor(engine: VoiceEngine): WhisperLanguage {
   return (english ?? options[0] ?? WHISPER_LANGUAGES[1]).id;
 }
 
-const VOICE_DIRECTORY = ["mobile-agent", "voice"] as const;
+const VOICE_DIRECTORY = ["nexora-ai", "voice"] as const;
 
 function directory() {
   const dir = new Directory(Paths.document, ...VOICE_DIRECTORY);

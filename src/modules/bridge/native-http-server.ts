@@ -26,7 +26,7 @@ type ListenerRegistry = {
   current: PhoneBridgeListener | null;
   pending: Promise<void>;
 };
-const registryKey = Symbol.for("mobile-agent.phone-bridge.listener");
+const registryKey = Symbol.for("nexora-ai.phone-bridge.listener");
 const globalRegistry = globalThis as typeof globalThis & {
   [registryKey]?: ListenerRegistry;
 };

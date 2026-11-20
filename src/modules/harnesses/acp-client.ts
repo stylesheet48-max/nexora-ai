@@ -703,8 +703,8 @@ export async function testAcpConnection(
           auth: { terminal: false },
         },
         clientInfo: {
-          name: "mobile-agent",
-          title: "Mobile Agent",
+          name: "nexora-ai",
+          title: "NEXORA AI",
           version: Constants.expoConfig?.version ?? "0.0.0",
         },
       },

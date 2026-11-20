@@ -67,7 +67,7 @@ export function resolveConfiguredModel(input: {
 
   if (!suggestion) return null;
 
-  const storedProfile = input.preset?.options?.__mobileAgentModelProfile;
+  const storedProfile = input.preset?.options?.__nexoraAiModelProfile;
   const storedProfileRecord =
     storedProfile &&
     typeof storedProfile === "object" &&

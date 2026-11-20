@@ -1259,7 +1259,7 @@ export async function migrateAppDatabase(db: SQLiteDatabase) {
       );
 
       const { Directory, File, Paths } = await import("expo-file-system");
-      const pluginsDir = new Directory(Paths.document, "mobile-agent/plugins");
+      const pluginsDir = new Directory(Paths.document, "nexora-ai/plugins");
       if (!pluginsDir.exists) {
         pluginsDir.create({ idempotent: true, intermediates: true });
       }
@@ -1296,8 +1296,8 @@ export async function migrateAppDatabase(db: SQLiteDatabase) {
   if (currentVersion === 28) {
     const { Directory, File, Paths } = await import("expo-file-system");
 
-    const skillsBase = new Directory(Paths.document, "mobile-agent/skills");
-    const agentsBase = new Directory(Paths.document, "mobile-agent/agents");
+    const skillsBase = new Directory(Paths.document, "nexora-ai/skills");
+    const agentsBase = new Directory(Paths.document, "nexora-ai/agents");
 
     await db.execAsync(`
       ALTER TABLE skills ADD COLUMN file_path TEXT;

@@ -1,7 +1,7 @@
 import { Directory, File, Paths } from "expo-file-system";
 
 function getPluginsDir() {
-  return new Directory(Paths.document, "mobile-agent/plugins");
+  return new Directory(Paths.document, "nexora-ai/plugins");
 }
 
 function ensurePluginsDir() {

@@ -34,7 +34,7 @@ vi.mock("expo-crypto", () => ({
 }));
 
 vi.mock("expo-linking", () => ({
-  createURL: vi.fn(() => "mobile-agent://"),
+  createURL: vi.fn(() => "nexora-ai://"),
   openURL: vi.fn(async () => {}),
 }));
 

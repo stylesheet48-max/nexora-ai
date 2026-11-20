@@ -309,7 +309,7 @@ function runRecognition(
 let scratchCounter = 0;
 
 function writeScratchWav(bytes: Uint8Array): File {
-  const directory = new Directory(Paths.cache, "mobile-agent-speech");
+  const directory = new Directory(Paths.cache, "nexora-ai-speech");
   try {
     directory.create({ intermediates: true, idempotent: true });
   } catch {

@@ -94,7 +94,7 @@ function installStubs(options: {
     querySelectorAll: (selector: string) =>
       selector === "video"
          ? (options.videos ?? (options.video ? [options.video] : []))
-        : selector === "img[data-mobile-agent-asset]"
+        : selector === "img[data-nexora-ai-asset]"
           ? (options.image ? [options.image] : [])
           : [canvas],
     createElement: () => ({ setAttribute: () => {}, appendChild: () => {} }),

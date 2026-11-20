@@ -5,7 +5,7 @@ import { MISSING_PLUGIN_HEADER_ERROR, manifestToId, parsePluginManifest } from "
 describe("plugin manifest", () => {
   it("parses the metadata header", () => {
     const result = parsePluginManifest(
-      '// @mobile-agent-plugin {"name":"Weather Tools","version":"1.2.0","author":"Ada"}\nmodule.exports = {};',
+      '// @nexora-ai-plugin {"name":"Weather Tools","version":"1.2.0","author":"Ada"}\nmodule.exports = {};',
     );
 
     expect(result).toEqual({

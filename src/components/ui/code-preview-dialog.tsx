@@ -117,8 +117,8 @@ type ActiveSceneExport = {
 type SceneExportRuntime = { active: ActiveSceneExport | null; listeners: Set<() => void> };
 // Fast Refresh must not lose ownership/progress of a long native export while
 // polishing its UI. A module-local variable is reset when this file refreshes.
-const exportGlobal = globalThis as typeof globalThis & { __mobileAgentSceneExportRuntime?: SceneExportRuntime };
-const exportRuntime = exportGlobal.__mobileAgentSceneExportRuntime ??= {
+const exportGlobal = globalThis as typeof globalThis & { __nexoraAiSceneExportRuntime?: SceneExportRuntime };
+const exportRuntime = exportGlobal.__nexoraAiSceneExportRuntime ??= {
     active: null,
     listeners: new Set(),
 };
@@ -511,7 +511,7 @@ export function CodePreviewContent({
             ? modalWebViewRef.current
             : webViewRef.current;
         target?.injectJavaScript(
-            `window.__mobileAgentPlayer ? (window.__mobileAgentPlayer.${command}, true) : false;`,
+            `window.__nexoraAiPlayer ? (window.__nexoraAiPlayer.${command}, true) : false;`,
         );
     }, []);
 
@@ -603,7 +603,7 @@ export function CodePreviewContent({
             Math.min(playerTimeRef.current, sceneDurationRef.current ?? 0),
         );
         webView.injectJavaScript(
-            `window.__mobileAgentPlayer ? (window.__mobileAgentPlayer.seek(${t}), true) : false;`,
+            `window.__nexoraAiPlayer ? (window.__nexoraAiPlayer.seek(${t}), true) : false;`,
         );
     }, []);
     const playerTimeRef = useRef(0);

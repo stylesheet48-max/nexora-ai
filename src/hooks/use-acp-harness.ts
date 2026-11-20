@@ -131,7 +131,7 @@ function dataURLToBlock(
   const header = uri.slice(5, comma);
   const mime = header.split(";")[0] || "application/octet-stream";
   const data = uri.slice(comma + 1);
-  const resourceURI = `mobile-agent://workspace/${encodeURIComponent(name || "file")}`;
+  const resourceURI = `nexora-ai://workspace/${encodeURIComponent(name || "file")}`;
   if (mime.startsWith("image/"))
     return { type: "image", mimeType: mime, data, uri: resourceURI };
   if (mime.startsWith("audio/"))
@@ -194,8 +194,8 @@ async function initializeAcp(api: AcpClient) {
         auth: { terminal: false },
       },
       clientInfo: {
-        name: "mobile-agent",
-        title: "Mobile Agent",
+        name: "nexora-ai",
+        title: "NEXORA AI",
         version: Constants.expoConfig?.version ?? "0.0.0",
       },
     },
@@ -525,7 +525,7 @@ export function useAcpHarnessController(profile: AcpHarnessProfile) {
         .current?.respondError(
           message.id,
           -32601,
-          `Mobile Agent does not implement ${message.method}.`,
+          `NEXORA AI does not implement ${message.method}.`,
         )
         .catch(() => {});
     }

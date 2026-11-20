@@ -119,7 +119,7 @@ export function buildPluginSource(input: BuildPluginInput): string {
   ];
 
   return [
-    `// @mobile-agent-plugin ${JSON.stringify(manifest)}`,
+    `// @nexora-ai-plugin ${JSON.stringify(manifest)}`,
     "",
     "module.exports = {",
     "  setup(api, options) {",

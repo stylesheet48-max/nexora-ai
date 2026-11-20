@@ -4,7 +4,7 @@ import { Directory, File, Paths } from "expo-file-system";
 
 import type { GeneratedImageAttachment } from "@/core/types/app-state";
 
-const GENERATED_IMAGE_ROOT = ["mobile-agent", "generated-images"] as const;
+const GENERATED_IMAGE_ROOT = ["nexora-ai", "generated-images"] as const;
 
 function getGeneratedImageDirectory() {
   return new Directory(Paths.document, ...GENERATED_IMAGE_ROOT);

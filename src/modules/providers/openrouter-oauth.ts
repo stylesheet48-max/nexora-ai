@@ -60,7 +60,7 @@ export async function handleOpenRouterLogin(): Promise<string> {
       callback_url: REDIRECT_URI,
       code_challenge: challenge,
       code_challenge_method: "S256",
-      key_label: "Mobile Agent",
+      key_label: "NEXORA AI",
       state,
     });
 
@@ -70,7 +70,7 @@ export async function handleOpenRouterLogin(): Promise<string> {
     );
     // Android opens the external browser; bring the user back after the callback.
     await Linking.openURL(
-      Linking.createURL("", { scheme: "mobile-agent" }),
+      Linking.createURL("", { scheme: "nexora-ai" }),
     ).catch(() => {});
 
     const response = await fetchWithTimeout(

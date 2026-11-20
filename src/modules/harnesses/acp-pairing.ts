@@ -3,7 +3,7 @@ import { fetch as expoFetch } from "expo/fetch";
 import { normalizeAcpUrl } from "./acp-client";
 import type { AcpHarnessID } from "./acp-profile";
 
-export const ACP_PAIRING_TYPE = "mobile-agent-acp-pair";
+export const ACP_PAIRING_TYPE = "nexora-ai-acp-pair";
 
 export type AcpPairingEntry = {
   id: AcpHarnessID;
@@ -46,15 +46,15 @@ export function parseAcpPairingPayload(
   try {
     parsed = JSON.parse(input);
   } catch {
-    throw new Error("That QR code is not a valid Mobile Agent pairing code.");
+    throw new Error("That QR code is not a valid NEXORA AI pairing code.");
   }
   if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
-    throw new Error("That QR code is not a Mobile Agent pairing code.");
+    throw new Error("That QR code is not a NEXORA AI pairing code.");
   }
 
   const payload = parsed as Record<string, unknown>;
   if (payload.v !== 1 || payload.type !== ACP_PAIRING_TYPE) {
-    throw new Error("That QR code is not a Mobile Agent pairing code.");
+    throw new Error("That QR code is not a NEXORA AI pairing code.");
   }
 
   const expiresAt = finiteTimestamp(payload.expiresAt);

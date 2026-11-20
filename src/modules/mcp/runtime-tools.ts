@@ -158,7 +158,7 @@ async function connectMcpClient(
       // 405 on an http-only server) is never reported as unhandled on
       // React Native, even in the window before waitForMcpOperation attaches.
       const probe = createRuntimeMCPClient({
-        clientName: "mobile-agent",
+        clientName: "nexora-ai",
         maxRetries: 2,
         // Sink SDK-internal error reports; failures surface via the awaited
         // path below and are aggregated into an actionable message.

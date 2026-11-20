@@ -31,7 +31,7 @@ import type { DocumentSection, WorkspaceFile } from "@/core/types/app-state";
 // Re-exported so existing import paths keep working.
 export { inferFileNameFromUrl, sanitizeFileName };
 
-const WORKSPACE_ROOT_SEGMENTS = ["mobile-agent", "workspace"] as const;
+const WORKSPACE_ROOT_SEGMENTS = ["nexora-ai", "workspace"] as const;
 
 const TEXT_MIME_PREFIXES = ["text/"];
 const TEXT_MIME_TYPES = new Set([

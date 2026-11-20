@@ -110,7 +110,7 @@ export function PluginImportDrawer({
         <DrawerHeader>
           <DrawerTitle>Import plugin</DrawerTitle>
           <DrawerDescription>
-            {`Plugins are .js files that start with a // @mobile-agent-plugin manifest header. A plain tool or script is not a plugin.`}
+            {`Plugins are .js files that start with a // @nexora-ai-plugin manifest header. A plain tool or script is not a plugin.`}
           </DrawerDescription>
         </DrawerHeader>
         <DrawerBody contentContainerClassName="gap-sp-3 pb-sp-4">

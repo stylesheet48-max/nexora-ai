@@ -1,11 +1,11 @@
-const HEADER_RE = /^\/\/\s*@mobile-agent-plugin\s+({.+})\s*$/m;
+const HEADER_RE = /^\/\/\s*@nexora-ai-plugin\s+({.+})\s*$/m;
 export const MAX_PLUGIN_SOURCE_SIZE = 1_048_576;
 
 export const MISSING_PLUGIN_HEADER_ERROR =
-  'Not a Mobile Agent plugin: the file must start with a manifest header, e.g. // @mobile-agent-plugin {"name":"example","version":"1.0.0"}';
+  'Not a NEXORA AI plugin: the file must start with a manifest header, e.g. // @nexora-ai-plugin {"name":"example","version":"1.0.0"}';
 
 export const PLUGIN_FORMAT_DOCS_URL =
-  "https://github.com/TecnicalBot/mobile-agent/blob/main/catalog/plugins/README.md";
+  "https://github.com/stylesheet48-max/nexora-ai/blob/main/catalog/plugins/README.md";
 
 export type PluginManifest = {
   author?: string;

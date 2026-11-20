@@ -792,8 +792,8 @@ export async function buildPdf(input: {
   const title = spec.title?.trim() || input.fileName;
 
   doc.setTitle(title);
-  doc.setProducer("Mobile Agent");
-  doc.setCreator("Mobile Agent");
+  doc.setProducer("NEXORA AI");
+  doc.setCreator("NEXORA AI");
 
   const fonts: Fonts = {
     body: await faceSet(doc, spec.fonts.body.family),

@@ -202,7 +202,7 @@ export function AcpConnectionForm({
         );
       else if (/401|unauthor/i.test(detail))
         setError(
-          `The bridge at ${validatedUrl} rejected this token. Paste the token printed on the bridge's first run, or read it from ~/.config/mobile-agent/bridge-token.`,
+          `The bridge at ${validatedUrl} rejected this token. Paste the token printed on the bridge's first run, or read it from ~/.config/nexora-ai/bridge-token.`,
         );
       else if (ACP_AUTH_ERROR_PATTERN.test(detail))
         setError(profile.signInHint);
@@ -424,7 +424,7 @@ export function AcpConnectionForm({
                       setError(
                         cause instanceof Error
                           ? cause.message
-                          : "Not a supported Mobile Agent pairing code.",
+                          : "Not a supported NEXORA AI pairing code.",
                       );
                       scanned.current = false;
                     }
@@ -575,8 +575,8 @@ export function AcpConnectionForm({
             />
             <Text className="font-sans text-xs text-muted-foreground dark:text-muted-foreground-dark">
               One stable token is shared by every harness bridge. On the bridge
-              host it lives in ~/.config/mobile-agent/bridge-token (or
-              %APPDATA%\mobile-agent\bridge-token on Windows). QR pairing fills
+              host it lives in ~/.config/nexora-ai/bridge-token (or
+              %APPDATA%\nexora-ai\bridge-token on Windows). QR pairing fills
               this in automatically.
             </Text>
             <Text className="font-sans text-sm text-foreground dark:text-foreground-dark">
@@ -608,7 +608,7 @@ export function AcpConnectionForm({
                 className="font-sans text-xs text-foreground dark:text-foreground-dark"
               >
                 curl -fsSL
-                https://raw.githubusercontent.com/tecnicalbot/mobile-agent/main/tools/install.sh
+                https://raw.githubusercontent.com/stylesheet48-max/nexora-ai/main/tools/install.sh
                 | sh
               </Text>
               <Text

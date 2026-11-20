@@ -28,7 +28,7 @@ vi.mock("expo-crypto", async () => {
   };
 });
 vi.mock("expo-linking", () => ({
-  createURL: () => "mobile-agent://",
+  createURL: () => "nexora-ai://",
   openURL: mocks.openURL,
 }));
 vi.mock("expo-web-browser", () => ({
@@ -98,7 +98,7 @@ describe("OpenRouter browser sign-in", () => {
     expect(authUrl.searchParams.get("callback_url")).toBe(
       "http://127.0.0.1:1456/auth/openrouter/callback",
     );
-    expect(authUrl.searchParams.get("key_label")).toBe("Mobile Agent");
+    expect(authUrl.searchParams.get("key_label")).toBe("NEXORA AI");
     expect(authUrl.searchParams.get("code_challenge_method")).toBe("S256");
     expect(authUrl.searchParams.get("state")).toMatch(/^[A-Za-z0-9_-]{43}$/);
     expect(mocks.prepare.mock.calls[0][0].expectedState).toBe(
@@ -116,7 +116,7 @@ describe("OpenRouter browser sign-in", () => {
       createHash("sha256").update(body.code_verifier).digest("base64url"),
     ).toBe(authUrl.searchParams.get("code_challenge"));
     expect(authUrl.searchParams.has("code_verifier")).toBe(false);
-    expect(mocks.openURL).toHaveBeenCalledWith("mobile-agent://");
+    expect(mocks.openURL).toHaveBeenCalledWith("nexora-ai://");
     expect(mocks.stop).toHaveBeenCalledOnce();
     expect(mocks.dispose).toHaveBeenCalledOnce();
     expect(mocks.dismiss).toHaveBeenCalledOnce();

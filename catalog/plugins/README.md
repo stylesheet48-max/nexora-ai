@@ -1,4 +1,4 @@
-# Mobile Agent Plugins
+# NEXORA AI Plugins
 
 Plugins are self-contained JavaScript files imported from Settings > Plugins.
 They execute as trusted code inside the app, so only install code you trust.
@@ -6,7 +6,7 @@ They execute as trusted code inside the app, so only install code you trust.
 Each file starts with a one-line JSON manifest:
 
 ```js
-// @mobile-agent-plugin {"name":"example","version":"1.0.0"}
+// @nexora-ai-plugin {"name":"example","version":"1.0.0"}
 ```
 
 The file assigns a plugin definition to `module.exports`. Its `setup(api,
@@ -75,9 +75,9 @@ the `.js` source at install time and keeps the device copy refreshed via its
 
 ## Common import problems
 
-- **`Not a Mobile Agent plugin: the file must start with a manifest header`** —
+- **`Not a NEXORA AI plugin: the file must start with a manifest header`** —
   the imported file is a plain script, tool definition, or bundle. Add the
-  `// @mobile-agent-plugin {"name":"...","version":"..."}` line as the first
+  `// @nexora-ai-plugin {"name":"...","version":"..."}` line as the first
   line of the file, then re-import it.
 - **`Plugin must assign an object with setup(api, options)`** — the file must
   use `module.exports = { setup(api, options) { return { ...hooks }; } }`.
@@ -98,7 +98,7 @@ needed.
 ## Complete example
 
 ```js
-// @mobile-agent-plugin {"name":"example-tools","version":"1.0.0","description":"Example prompt, tool, and lifecycle hooks."}
+// @nexora-ai-plugin {"name":"example-tools","version":"1.0.0","description":"Example prompt, tool, and lifecycle hooks."}
 
 module.exports = {
   async setup(api, options) {

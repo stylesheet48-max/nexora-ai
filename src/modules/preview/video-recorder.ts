@@ -427,7 +427,7 @@ export const VIDEO_EXPORT_SCRIPT = `(function () {
     canvas.height = height;
     canvas.setAttribute('style', 'position:relative;width:auto;height:auto;max-width:100%;max-height:100%;margin:auto;display:block;background:#000;');
     stage = document.createElement('div');
-    stage.id = 'mobile-agent-video-stage';
+    stage.id = 'nexora-ai-video-stage';
     stage.setAttribute('style', 'position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;background:#000;');
     stage.appendChild(canvas);
     document.body.appendChild(stage);
@@ -1398,7 +1398,7 @@ export const VIDEO_EXPORT_SCRIPT = `(function () {
   // they were silently skipped whenever prepareFrame existed.
   function prepareSourceFrame(contract, t, fps) {
     var waits = [];
-    var images = document.querySelectorAll('img[data-mobile-agent-asset]');
+    var images = document.querySelectorAll('img[data-nexora-ai-asset]');
     for (var j = 0; j < images.length; j += 1) {
       waits.push(awaitSceneImage(images[j]));
     }

@@ -11,7 +11,7 @@ const MEMORY_ID = "memory.md";
 const EMPTY_MEMORY_DOCUMENT = "# Memory\n";
 
 function getMemoryDirectory() {
-  return new Directory(Paths.document, "mobile-agent");
+  return new Directory(Paths.document, "nexora-ai");
 }
 
 function getMemoryFile() {

@@ -139,7 +139,7 @@ export function createFetchPageTool({
         let response: Response;
         try {
           response = await fetch(target.toString(), {
-            headers: { "User-Agent": "Mozilla/5.0 (Linux; Android 14) MobileAgent/1.0" },
+            headers: { "User-Agent": "Mozilla/5.0 (Linux; Android 14) NexoraAI/1.0" },
             signal: controller.signal,
           });
         } catch (error) {

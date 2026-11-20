@@ -215,7 +215,7 @@ describe("updateDocument tool", () => {
 
     const zip = await JSZip.loadAsync(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${created.relativePath}`,
+        `file:///document/nexora-ai/workspace/${created.relativePath}`,
       )!.bytes,
     );
     const xml = await zip.file("word/document.xml")!.async("string");
@@ -287,7 +287,7 @@ describe("updateDocument tool", () => {
 
     const zip = await JSZip.loadAsync(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${created.relativePath}`,
+        `file:///document/nexora-ai/workspace/${created.relativePath}`,
       )!.bytes,
     );
     const documentXml = await zip.file("word/document.xml")!.async("string");
@@ -322,7 +322,7 @@ describe("createFile tool with document specs", () => {
 
     const zip = await JSZip.loadAsync(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${file!.relativePath}`,
+        `file:///document/nexora-ai/workspace/${file!.relativePath}`,
       )!.bytes,
     );
     const stylesXml = await zip.file("word/styles.xml")!.async("string");
@@ -366,7 +366,7 @@ describe("edit tool on documents", () => {
 
     const zip = await JSZip.loadAsync(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${created.relativePath}`,
+        `file:///document/nexora-ai/workspace/${created.relativePath}`,
       )!.bytes,
     );
     const xml = await zip.file("word/document.xml")!.async("string");
@@ -618,7 +618,7 @@ describe("updateDocument tool sections", () => {
 
     const zip = await JSZip.loadAsync(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${created.relativePath}`,
+        `file:///document/nexora-ai/workspace/${created.relativePath}`,
       )!.bytes,
     );
     const xml = await zip.file("word/document.xml")!.async("string");

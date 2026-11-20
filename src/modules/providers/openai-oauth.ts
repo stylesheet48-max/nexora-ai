@@ -55,7 +55,7 @@ function refreshKey(accountId: string | null) {
 
 async function returnToAppAfterOAuth() {
   try {
-    await Linking.openURL(Linking.createURL("", { scheme: "mobile-agent" }));
+    await Linking.openURL(Linking.createURL("", { scheme: "nexora-ai" }));
   } catch {}
 }
 

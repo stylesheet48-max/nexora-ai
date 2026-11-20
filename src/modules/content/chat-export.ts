@@ -1,6 +1,6 @@
 import type { Conversation, MessageRole, MessageStatus, StoredMessage } from "@/core/types/app-state";
 
-export const CHAT_EXPORT_FORMAT = "mobile-agent-chat";
+export const CHAT_EXPORT_FORMAT = "nexora-ai-chat";
 export const CHAT_EXPORT_VERSION = 1 as const;
 
 export type ChatExportFile = {
@@ -54,7 +54,7 @@ export function parseConversationExport(json: string): ChatExportFile {
 
     if (record.format !== CHAT_EXPORT_FORMAT) {
         throw new Error(
-            "This file is not a Mobile Agent chat export (`mobile-agent-chat`).",
+            "This file is not a NEXORA AI chat export (`nexora-ai-chat`).",
         );
     }
 

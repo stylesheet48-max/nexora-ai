@@ -5,12 +5,12 @@ const SKILL_MAX_BYTES = 200_000;
 
 const SKILL_FETCH_HEADERS = {
   Accept: "text/plain,text/markdown,*/*",
-  "User-Agent": "mobile-agent-skill-importer",
+  "User-Agent": "nexora-ai-skill-importer",
 };
 
 const API_FETCH_HEADERS = {
   Accept: "application/vnd.github+json",
-  "User-Agent": "mobile-agent-skill-importer",
+  "User-Agent": "nexora-ai-skill-importer",
 };
 
 const BRANCH_PLACEHOLDER = "__DEFAULT_BRANCH__";

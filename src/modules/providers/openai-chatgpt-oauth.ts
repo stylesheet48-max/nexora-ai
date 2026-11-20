@@ -17,7 +17,7 @@ const TOKEN_URL = `${ISSUER}/api/accounts/oauth/token`;
 const JWKS_URL = `${ISSUER}/.well-known/jwks.json`;
 const RESOURCE = "https://api.openai.com/v1";
 const REGISTRATION_CLIENT_ID = "dynamic_agent_client";
-const AGENT_NAME = "Mobile Agent";
+const AGENT_NAME = "NEXORA AI";
 const TOKEN_SHARING_SCOPE = "chatgpt.tokens.use.direct";
 const SCOPES = [
   "openid",
@@ -90,7 +90,7 @@ function refreshKey(accountId: string | null) {
 
 async function returnToAppAfterOAuth() {
   try {
-    await Linking.openURL(Linking.createURL("", { scheme: "mobile-agent" }));
+    await Linking.openURL(Linking.createURL("", { scheme: "nexora-ai" }));
   } catch {}
 }
 

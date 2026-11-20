@@ -240,7 +240,7 @@ export default function VoiceSettingsScreen() {
         if (!notificationsGranted) {
           Alert.alert(
             "Notifications are off",
-            "The download continues in the background, but its progress notification stays hidden. Enable notifications for Mobile Agent to see it.",
+            "The download continues in the background, but its progress notification stays hidden. Enable notifications for NEXORA AI to see it.",
           );
         }
       } else {

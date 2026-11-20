@@ -233,7 +233,7 @@ describe("splitDocument tool", () => {
 
     const zip = await JSZip.loadAsync(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${part1!.relativePath}`,
+        `file:///document/nexora-ai/workspace/${part1!.relativePath}`,
       )!.bytes,
     );
     const xml = await zip.file("word/document.xml")!.async("string");
@@ -341,7 +341,7 @@ describe("mergeDocuments tool", () => {
 
     const zip = await JSZip.loadAsync(
       mocks.files.get(
-        `file:///document/mobile-agent/workspace/${merged!.relativePath}`,
+        `file:///document/nexora-ai/workspace/${merged!.relativePath}`,
       )!.bytes,
     );
     const xml = await zip.file("word/document.xml")!.async("string");
@@ -431,7 +431,7 @@ async function readCreatedBytes(
 ): Promise<Uint8Array> {
   const file = await repository.getById(fileId);
   return mocks.files.get(
-    `file:///document/mobile-agent/workspace/${file!.relativePath}`,
+    `file:///document/nexora-ai/workspace/${file!.relativePath}`,
   )!.bytes;
 }
 

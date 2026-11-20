@@ -676,8 +676,8 @@ export async function buildPptx(input: {
   }
 
   pptx.title = defaultTitle;
-  pptx.author = spec.presentation.author ?? "Mobile Agent";
-  pptx.company = spec.presentation.company ?? "Mobile Agent";
+  pptx.author = spec.presentation.author ?? "NEXORA AI";
+  pptx.company = spec.presentation.company ?? "NEXORA AI";
   pptx.subject = spec.presentation.subject ?? defaultTitle;
   pptx.rtlMode = spec.presentation.rtlMode;
   pptx.theme = {

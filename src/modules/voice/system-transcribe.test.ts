@@ -15,7 +15,7 @@ const mocks = vi.hoisted(() => {
     fileWrite: vi.fn(),
     fileDelete: vi.fn(),
     fileExists: true,
-    fileUri: "file:///cache/mobile-agent-speech/speech-1.wav",
+    fileUri: "file:///cache/nexora-ai-speech/speech-1.wav",
   };
 });
 

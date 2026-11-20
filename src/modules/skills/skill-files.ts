@@ -16,12 +16,12 @@ export type SkillAttachment = {
 
 const FILE_HEADERS = {
   Accept: "*/*",
-  "User-Agent": "mobile-agent-skill-importer",
+  "User-Agent": "nexora-ai-skill-importer",
 };
 
 const API_HEADERS = {
   Accept: "application/vnd.github+json",
-  "User-Agent": "mobile-agent-skill-importer",
+  "User-Agent": "nexora-ai-skill-importer",
 };
 
 type GitHubEntry = {

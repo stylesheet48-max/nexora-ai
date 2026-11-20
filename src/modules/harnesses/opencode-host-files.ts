@@ -19,7 +19,7 @@ export function openCodeHostUploadPath(input: {
   fileName: string;
 }) {
   const root = input.temporaryRoot.replace(/[\\/]+$/, "");
-  return `${root}/uploads/mobile-agent/${pathSegment(input.uploadID, "upload")}/${pathSegment(sanitizeFileName(input.fileName), "attachment")}`;
+  return `${root}/uploads/nexora-ai/${pathSegment(input.uploadID, "upload")}/${pathSegment(sanitizeFileName(input.fileName), "attachment")}`;
 }
 
 function authHeaders(connection: OpenCodeConnection) {
